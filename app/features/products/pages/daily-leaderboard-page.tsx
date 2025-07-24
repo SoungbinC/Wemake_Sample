@@ -7,6 +7,11 @@ import { Button } from "~/common/components/ui/button"
 import { ProductCard } from "../components/product-card"
 import ProductPagination from "~/common/components/product-pagination"
 
+export const meta: Route.MetaFunction = ({ params }) => {
+    const { year, month, day } = params
+    return [{ title: `The best products of ${year}-${month}-${day}` }]
+}
+
 const paramsSchema = z.object({
     year: z.coerce.number(),
     month: z.coerce.number(),
